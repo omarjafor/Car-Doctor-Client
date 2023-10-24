@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
             : <li> <Link to="/login">Login</Link> </li>
         }
     </>
-    
+
     return (
         <div className="navbar bg-base-100 h-28 mb-4">
             <div className="navbar-start">
