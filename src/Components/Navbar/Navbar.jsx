@@ -3,15 +3,19 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
+    const handleLogOut = {
+
+    }
+
     const navItems = <>
         <li><Link to="/">Home</Link> </li>
         <li> <Link to="/about">About</Link> </li>
-        {user?.email ? <>
+        
             <li><Link to="/bookings">My Bookings</Link></li>
             <li><button onClick={handleLogOut}>Log out</button></li>
-        </>
-            : <li> <Link to="/login">Login</Link> </li>
-        }
+        
+          <li> <Link to="/login">Login</Link> </li>
+        
     </>
 
     return (
@@ -26,7 +30,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    <img src={logo} alt="" />
+                    <img src="" alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
