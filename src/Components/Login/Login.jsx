@@ -1,12 +1,24 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import img from './../../assets/images/login/login.svg';
-import { useContext } from 'react';
+import useHook from '../../useHook/useHook';
 
 const Login = () => {
+    const { signIn } = useHook();
+    
 
     const handleLogin = e => {
         e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
 
+        signIn(email, password)
+        .then(res => {
+            const user = res.user;
+            console.log(user);
+        })
+        .catch(err => console.log(err.message))
     }
     return (
         <div className="hero min-h-screen bg-base-200">
