@@ -24,17 +24,7 @@ const AuthProvider = ( { children }) => {
         return signOut(auth);
     }
 
-    useEffect( () => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            setLoading(false);
-            console.log('Current User :', currentUser)
-        });
-
-        return () => {
-            unsubscribe();
-        }
-    } , [])
+    
 
     const authInfo = {
         user,
