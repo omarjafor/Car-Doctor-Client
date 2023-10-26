@@ -7,6 +7,7 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Signup from './Components/SignUp/Signup';
 import AuthProvider from './AuthProvider/AuthProvider';
+import BookService from './Components/BookService/BookService';
 
 
 const router = createBrowserRouter([
@@ -19,12 +20,17 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login></Login>
       },
       {
-        path: '/signup',
+        path: 'signup',
         element: <Signup></Signup>
+      }, 
+      {
+        path: 'bookservice/:id',
+        element: <BookService></BookService>,
+        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
       }
     ]
   },
