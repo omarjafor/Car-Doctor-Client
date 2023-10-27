@@ -44,7 +44,6 @@ const Bookings = () => {
                             ></BookingRow>)
                         }
                     </tbody>
-
                 </table>
             </div>
         </div>
