@@ -14,26 +14,6 @@ const Bookings = () => {
         .then(res => res.json())
         .then(data => setBookings(data))
     } , [url])
-
-    const handleBookingConfirm = (id) => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify({ status : 'confirm'})
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0){
-                const remaining = bookings.filter(booking => booking._id !== id )
-                const updated = bookings.filter(booking => booking._id == id )
-                updated.status = 'confirm'
-                const newbooking = [updated, ...remaining]
-                setBookings(newbooking);
-            }
-        })
-    }
     
     const handleDelete = (id) => {
         const proced = confirm('Are You Sure & Want To Delete?');
