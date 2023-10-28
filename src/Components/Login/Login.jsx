@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from './../../assets/images/login/login.svg';
 import useHook from '../../useHook/useHook';
 
 const Login = () => {
     const { signIn } = useHook();
-    
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault()
@@ -17,6 +18,7 @@ const Login = () => {
         .then(res => {
             const user = res.user;
             console.log(user);
+            navigate(location?.state ? location?.state : '/')
         })
         .catch(err => console.log(err.message))
     }
