@@ -5,7 +5,7 @@ import ServiceCard from "./ServiceCard";
 const Services = () => {
     // DRY ---> Do not repeat your self 
     const services = useServices();
-    
+
     return (
         <div className="mt-4">
             <div className="text-center">
